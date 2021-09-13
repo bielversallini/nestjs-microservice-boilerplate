@@ -1,10 +1,9 @@
 {
   "name": "nestjs-microservice-boilerplate",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "description": "A simple microservice boilerplate",
+  "author": "Gabriel Barbosa <gabriel@versallini.com.br>",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
