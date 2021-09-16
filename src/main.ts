@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -14,6 +15,7 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
+  app.useGlobalPipes(new ValidationPipe());
   app.register(fastifyCookie);
   app.register(fastifyCsrf);
   app.register(fastifyHelmet);
