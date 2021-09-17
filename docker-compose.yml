@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+
+  prod:
+    container_name: prod_boilerplate
+    build:
+        context: .
+        target: production
+        dockerfile: ./Dockerfile
+    command: npm run start:prod
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - nesjs-network
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  dev:
+    container_name: dev_boilerplate
+    build: 
+      target: development
+      dockerfile: ./Dockerfile
+      context: .
+    command: npm run start:dev
+    depends_on: 
+      - postgres
+      - pgadmin
+    environment: 
+      DATABASE_URL: postgres://user:password@postgres:5432/db
+      NODE_ENV: development
+      PORT: 3000
+    ports:
+      - 3000:3000
+    networks:
+      - nesjs-network
+
+  postgres:
+      image: postgres:10.4
+      ports:
+          - 35000:5432
+      environment: 
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: db   
+
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"  
+
+networks:
+    nesjs-network:
