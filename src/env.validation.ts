@@ -8,7 +8,7 @@ enum Environment {
   Production = 'production',
 }
 
-export class EnvironmentVariables {
+export class ApplicationContext {
   @IsEnum(Environment)
   NODE_ENV: Environment;
 
@@ -17,11 +17,11 @@ export class EnvironmentVariables {
 }
 
 export function validate(config: Record<string, unknown>) {
-  const validatedConfig = plainToClass(EnvironmentVariables, config, {
+  const appContext = plainToClass(ApplicationContext, config, {
     enableImplicitConversion: true,
   });
 
-  const errors = validateSync(validatedConfig, {
+  const errors = validateSync(appContext, {
     skipMissingProperties: false,
   });
 
@@ -29,5 +29,5 @@ export function validate(config: Record<string, unknown>) {
     throw new Error(errors.toString());
   }
 
-  return validatedConfig;
+  return appContext;
 }
