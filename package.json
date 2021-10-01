@@ -28,7 +28,7 @@
     "@nestjs/swagger": "^5.0.9",
     "@nestjs/terminus": "^8.0.0",
     "@opentelemetry/auto-instrumentations-node": "^0.25.0",
-    "@opentelemetry/exporter-jaeger": "^0.24.0",
+    "@opentelemetry/exporter-jaeger": "^0.25.0",
     "@opentelemetry/exporter-prometheus": "^0.24.0",
     "@opentelemetry/sdk-node": "^0.24.0",
     "class-transformer": "^0.4.0",
