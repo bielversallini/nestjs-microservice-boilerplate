@@ -30,7 +30,7 @@
     "@opentelemetry/auto-instrumentations-node": "^0.25.0",
     "@opentelemetry/exporter-jaeger": "^0.24.0",
     "@opentelemetry/exporter-prometheus": "^0.24.0",
-    "@opentelemetry/sdk-node": "^0.24.0",
+    "@opentelemetry/sdk-node": "^0.30.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "fastify-cookie": "^5.3.1",
